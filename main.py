@@ -18,16 +18,13 @@ def find_mismatch(text):
             opening_brackets_stack.append(Bracket(next_char, i + 1))
 
         if next_char in ")]}":
-            if len(opening_brackets_stack) == 0:
-                return i + 1
-            top = opening_brackets_stack.pop()
-            if not are_matching(top.char, next_char):
-                return i + 1
-
-    if len(opening_brackets_stack) > 0:
-        return opening_brackets_stack[0].position
-
-    return "Success"
+            if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
+            return i + 1
+            opening_brackets_stack.pop()
+        if opening_brackets_stack:
+            return opening_brackets_stack[0].position
+            
+        return "Success"
 
 
 def main():
