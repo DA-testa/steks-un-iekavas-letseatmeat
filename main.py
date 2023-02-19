@@ -22,7 +22,7 @@ def find_mismatch(text):
                 return i + 1
             opening_brackets_stack.pop()
     if opening_brackets_stack:
-        return opening_brackets_stack[0].position
+        return opening_brackets_stack[-1].position
             
     return "Success"
 
@@ -32,7 +32,7 @@ def main():
     mismatch = find_mismatch(text)
     if "F" in text:
         step = 0
-        while step<6:
+        while step < 6:
             with open (f"test/{step}") as fails:
                 text = fails.read()
                 mismatch  = find_mismatch
