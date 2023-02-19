@@ -38,6 +38,10 @@ def main():
                 mismatch  = find_mismatch
                 print(mismatch)
                 step += 1
+    if "I" in text:
+        text = input()
+        mismatch = find_mismatch(text)
+        print(mismatch)
 
 if __name__ == "__main__":
     main()
