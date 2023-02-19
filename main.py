@@ -30,11 +30,14 @@ def find_mismatch(text):
 def main():
     text = input()
     mismatch = find_mismatch(text)
-    if mismatch == "Success":
-        print(mismatch)
-    else:
-        print(mismatch)
-
+    if "F" in text:
+        step = 0
+        while step<6:
+            with open (f"test/{step}") as fails:
+                text = fails.read()
+                mismatch  = find_mismatch
+                print(mismatch)
+                step += 1
 
 if __name__ == "__main__":
     main()
